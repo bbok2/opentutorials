@@ -1,0 +1,22 @@
+SUTUY 메모
+
+node.js 와 npm 과 npx 가 설치되어 있어야함.
+
+사용자정의 함수 -> 컴포넌트라고 함 (컴포넌트의 첫글자는 대문자)
+
+npx create-react-app . : 현재 폴더에 react 앱 실행
+npx create-react-app "폴더명" : 폴더 생성 후 react 앱 실행
+
+
+npm start : 웹서버 스타트
+
+
+
+npm run build : 배포용 생성
+npx serve -s build : 배포용 웹서버 실행
+
+
+git과의 연동
+git init
+git remote add origin <깃허브에 생성한 URL>
+git add .
