@@ -20,3 +20,85 @@ git과의 연동
 git init
 git remote add origin <깃허브에 생성한 URL>
 git add .
+git commit -m "modyfied2"
+git push origin master
+git pull origin master
+
+
+======================================================================================================
+React project 진행을 위해,
+
+Github에서 repository를 clone 받은 후, 바로 npm start 명령어를 입력하면 화면이 동작하지 않는다.
+clone 후 npm install 명령어 입력을 진행해야 화면이 동작한다. 
+그 이유는! npm install을 통해 node-modules 폴더 생성(패키지 소스코드가 생성)되기 때문이다.
+
+
+1. git clone github repo 주소
+2. npm install
+3. npm start 
+
+======================================================================================================
+
+기본 셋팅
+
+1. git init : 깃허브에 올리고자 하는 해당폴더로 이동해 선언, 해당폴더를 git에서 관리하겠다는 선언 (초기화)
+
+2. git config --global user.name "자신의 영문이름" : commit 한 사람의 이름 정보를 남김.
+ ※  프로젝트 진행 시 매우 중요. 커밋실명제 같은 것, (깃설치후 최초만 해주면됨)
+
+3. git config --global user.email "깃에 생성한 메일주소" : commit 한 사람의 이메일 정보를 남김.
+ ※  프로젝트 진행 시 매우 중요. 커밋실명제 같은 것 (깃설치후 최초만 해주면됨)
+
+
+GitHub로 파일 전송
+
+1. git remote add origin 레포지토리주소 : 레포지토리와 작업폴더를 연결
+
+ ※  origin은 레포지토리주소의 별칭같은 것. 임의로 해도 되지만 일반적으로 origin을 많이 쓴다.
+ ※   git remote remove origin 레포지토리주소 : 레포지토리 연결을 제거
+ ※   git remote -v : 원격의 GitHub의 레포지토리주소정보를 확인
+ ※   git remote : 별칭 확인
+
+2. git add 파일명 : 파일을 stage(or index) 영역에 올려두는 것
+
+ ※ add .은 현재 폴더의 모든 파일을 올려두는 것 (자동으로 바뀐 파일만 올라가게된다)
+ ※ git status 명령어를 이용해 잘 올라갔는지 확인할 것을 권장
+ ※ git status : work 영역의 폴더나 파일, stage(index) 영역에 들어가있는 폴더나 파일을 출력
+
+3. git commit -m "커밋 설명" : stage 영역에 등록된 파일들을 repository에 업데이트, 커밋시키는 시점의 백업본을 만들어두고 이 시점으로 되돌릴 수 있다.
+
+ ※  일반적으로 하나의 기능이 구현되면 그때마다 커밋을 한다.
+
+4. git push origin [브랜치명] : 커밋된 파일을 원격의 origin 경로의 주소에 master 브랜치에 lacal 파일을 원격으로 전송
+
+
+GitHub repository에서 로컬 repository로 clone
+
+ 1. git clone 레파지토리주소 . : 원격(remote) GitHub의 레파지토리의 파일을 local의 현재 폴더에 복사
+
+ ※ . 을 떼면 폴더까지 다 가져옴
+ ※ 빈폴더에 해야함
+
+
+GitHub repository의 변경사항을 로컬 repository로 pull
+
+1. git pull origin master : 수정된(새로운 커밋내용이 추가된) 원격의 파일을 local로 내려받기
+
+ ※ pull 하기전에 clone 하고 수정사항이 있을 때 하는 것을 권장
+
+
+기록된 Commit 시점 중 특정 시점으로 롤백
+
+1. git checkout 커밋넘버(7자리정도까지만해도됨) : 커밋된 특정 시점으로 롤백
+
+ ※ 커밋넘버 출력 방법 : git log 명령어로 커밋정보를 출력
+ ※ git checkout - : 이전 커밋시점으로 롤백
+
+
+요약
+ - git init : 로컬 레포지토리 생성(.git 폴더)
+ - git add : 스태이징 영역에 업로드
+ - git commit : 로컬 레포지토리에 업로드
+ - git push : 원격 레포지토리에 업로드
+ - git clone : 원격 레포지토리 파일을 로컬 레포지토리에 복사
+ - git pull : 원격 레포지토리의 변경된 사항 불러오기
