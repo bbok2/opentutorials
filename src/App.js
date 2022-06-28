@@ -11,18 +11,18 @@ function Header(props){
 }
 
 function Nav(props){
-  const lis = []
+  const lis = [] //배열 선언
   for(let i=0; i<props.topics.length; i++){
     let t = props.topics[i];
     lis.push(<li key={t.id}><a href={'/read/'+t.id}>{t.title}</a></li>)
     // 고유한 key값이 필요함
   }
   return(
-    <nav>
-    <ol>
-          {lis}
-        </ol>
-        </nav>
+<nav>
+  <ol>
+    {lis}
+  </ol>
+</nav>
   )
 }
 
@@ -45,7 +45,7 @@ function App() {
     <div className="App">
      <Header title="REACT"></Header>
      <Nav topics={topics}></Nav>
-     <Article title="Welcome" body="Hello, WEB"></Article>     
+     <Article title="Welcome" body="Hello, WEB"></Article>
     </div>
   );
 }
